@@ -1,5 +1,5 @@
-# pi
-just pi things... this repo composes many pi services together for easy deployments.
+# web
+things i plan to host
 
 
 ## Goals
