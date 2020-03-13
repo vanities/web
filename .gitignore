@@ -2,3 +2,4 @@ certs
 keys.pem
 **/*.key
 **/*.conf
+**/schemas/
