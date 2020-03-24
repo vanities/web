@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/letsencrypt
+      - ./certs-data:/data/letsencrypt
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:catwebm.com;"
+      - "traefik.port=80"
+      - "traefik.docker.network=web"
+    depends_on:
+      - synapse
+      - traefik
+    networks:
+      - web
+
+networks:
+  web:
