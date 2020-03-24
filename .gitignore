@@ -1,5 +1,5 @@
 certs
-keys.pem
+**/*.pem
 **/*.key
 **/*.conf
 **/schemas/

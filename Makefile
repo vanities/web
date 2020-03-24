@@ -6,8 +6,8 @@ DOCKER_PATH = docker-compose.yml
 WEB_URL ?= catwebm.com
 RIOT_POSTGRES_PASSWORD ?= some-pass
 
-EC2_PRIVATE_KEY_PATH ?= keys.pem
-EC2_URL ?=ubuntu@ec2-18-224-138-105.us-east-2.compute.amazonaws.com
+EC2_PRIVATE_KEY_PATH ?= catwebm.pem
+EC2_URL ?= ubuntu@ec2-3-17-66-15.us-east-2.compute.amazonaws.com
 
 # apps
 RIOT := riot/$(DOCKER_PATH)
