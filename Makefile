@@ -16,17 +16,9 @@ SANIC := sanic/$(DOCKER_PATH)
 RIOT := riot/$(DOCKER_PATH)
 
 DOCKER_COMPOSE = docker-compose \
+				 --file $(SANIC) \
 				 --file $(NGINX) \
-				 --file $(SANIC)
 
-# init
-DOCKER_INIT_PATH = docker-compose.init.yml
-RIOT_INIT := riot/$(DOCKER_INIT_PATH)
-DOCKER_COMPOSE_INIT = docker-compose \
-					  --file $(RIOT_INIT)
-
-image:
-	$(DOCKER_COMPOSE) build
 
 shell:
 	 ssh -i $(EC2_PRIVATE_KEY_PATH) $(EC2_URL)
@@ -40,13 +32,11 @@ init:
 	mv -- tmp nginx/docker-compose.yml
 	docker-compose --rm --file nginx/docker-compose.init.yml up
 
-up: image
-	POSTGRES_PASSWORD=$(RIOT_POSTGRES_PASSWORD) \
-	FQDN=$(WEB_URL) \
-	  $(DOCKER_COMPOSE) up
+up:
+	$(DOCKER_COMPOSE) up
 
-release: image
-	docker push $(DOCKER_TAG)
+config:
+	$(DOCKER_COMPOSE) config
 
 release_aws:
 	 rsync -i $(EC2_PRIVATE_KEY_PATH) \
@@ -54,12 +44,6 @@ release_aws:
 	   -r . $(EC2_URL):~/
 
 renew_cert:
-	docker-compose --rm --file nginx/docker-compose.init.yml up -d
-	docker run -it --rm \
-		-v /${PWD}/certs:/etc/letsencrypt \
-		-v /${PWD}/certs-data:/data/letsencrypt \
-		deliverous/certbot certonly \
-		--webroot --webroot-path=/data/letsencrypt -d $(WEB_URL)
 
 service:
 	sudo cp services/* /etc/systemd/system
@@ -68,6 +52,5 @@ service:
 
 down: 
 	 $(DOCKER_COMPOSE) down
-	 $(DOCKER_COMPOSE_INIT) down
 
 default: image

@@ -2,13 +2,16 @@ version: '3'
 
 services:
   sanic:
-    image:  ubergarm/sanic-alpine
+    image: sanicframework/sanic:LTS
     restart: always
     ports:
       - 8000:8000
     volumes:
-      - .:/usr/src/app/static
-    command: server.py
+      - ${SANIC_PATH}/static:/usr/src/app/static
+      - ${SANIC_PATH}/server.py:/usr/src/app/server.py
+    command: python3 server.py
 
 networks:
-  web:
+  default:
+    external:
+      name: web
