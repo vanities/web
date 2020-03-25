@@ -1,0 +1,17 @@
+[Unit]
+Description=Web Compose
+Requires=docker.service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=root
+WorkingDirectory=/home/satoshi
+ExecStartPre=-/usr/bin/docker network create web
+ExecStart=make up
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+

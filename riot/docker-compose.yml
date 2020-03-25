@@ -13,7 +13,7 @@ services:
     volumes:
       - ./files:/data
     ports:
-      - "8008:8008"
+      - 8008:8008/tcp
     labels:
       - traefik.enable=true
       - traefik.http.routers.http-synapse.entryPoints=http

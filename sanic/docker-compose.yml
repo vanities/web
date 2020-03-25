@@ -1,11 +1,14 @@
 version: '3'
 
 services:
-  web:
+  sanic:
     image:  ubergarm/sanic-alpine
     restart: always
     ports:
-      - 80:8000
+      - 8000:8000
     volumes:
       - .:/usr/src/app/static
     command: server.py
+
+networks:
+  web:

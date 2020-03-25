@@ -10,8 +10,8 @@ SANIC_PREFIX = "SANIC_"
 app = Sanic()
 
 
-@app.route("/hello-world")
-async def test(request):
+@app.route("/index")
+async def index(request):
     return json(hello_world())
 
 
@@ -23,4 +23,4 @@ if __name__ == "__main__":
         if k.startswith(SANIC_PREFIX):
             _, config_key = k.split(SANIC_PREFIX, 1)
             app.config[config_key] = v
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=8000)
