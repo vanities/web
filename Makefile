@@ -45,10 +45,16 @@ release_aws:
 
 renew_cert:
 
-service:
+service_start:
 	sudo cp services/* /etc/systemd/system
-	systemctl start web.service
-	systemctl enable web.service
+	sudo systemctl start web.service
+	sudo systemctl enable web.service
+
+service_reload:
+	sudo systemctl daemon-reload
+
+service_status:
+	sudo systemctl status web.service
 
 down: 
 	 $(DOCKER_COMPOSE) down

@@ -6,7 +6,7 @@ Wants=network-online.target
 
 [Service]
 User=root
-WorkingDirectory=/home/satoshi
+WorkingDirectory=/home/ubuntu
 ExecStartPre=-/usr/bin/docker network create web
 ExecStart=make up
 Restart=always
