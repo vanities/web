@@ -4,6 +4,7 @@ app = Sanic()
 
 
 app.static("/", "static/index.html", content_type="text/html; charset=utf-8")
+app.static("/static", "/usr/src/app/static")
 
 
 def main():

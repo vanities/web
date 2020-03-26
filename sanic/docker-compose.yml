@@ -7,8 +7,8 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ${SANIC_PATH}/static:/usr/src/app/static
-      - ${SANIC_PATH}/server.py:/usr/src/app/server.py
+      - ${SANIC_PATH:-.}/static:/usr/src/app/static
+      - ${SANIC_PATH:-.}/server.py:/usr/src/app/server.py
     command: python3 server.py
 
 networks:

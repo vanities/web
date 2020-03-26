@@ -8,7 +8,7 @@ Wants=network-online.target
 User=root
 WorkingDirectory=/home/ubuntu
 ExecStartPre=-/usr/bin/docker network create web
-ExecStart=make up
+ExecStart=/usr/bin/make up
 Restart=always
 RestartSec=5s
 

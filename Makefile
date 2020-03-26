@@ -50,11 +50,17 @@ service_start:
 	sudo systemctl start web.service
 	sudo systemctl enable web.service
 
+service_restart:
+	sudo systemctl restart web.service
+
 service_reload:
 	sudo systemctl daemon-reload
 
 service_status:
 	sudo systemctl status web.service
+
+logs:
+	sudo journalctl -f -u web.service
 
 down: 
 	 $(DOCKER_COMPOSE) down

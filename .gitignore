@@ -3,3 +3,4 @@ certs
 **/*.key
 **/*.conf
 **/schemas/
+**/.DS_Store
