@@ -7,7 +7,7 @@ header {
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 1vw;
   line-height: 1.35;
   color: #cdcdc1;
   margin: 10px 0 0 0;
@@ -16,23 +16,29 @@ h2 {
 
 body {
   margin: 30;
-  font-size: 16px;
+  font-size: 16vw;
   background: #00000c;
 }
 
 .mp {
-  max-width: 130ex;
-  padding: 0 9ex 1ex 4ex;
+  max-width: 100%;
+  padding-top: 0%;
+  padding-right: 5%;
+  padding-bottom: 0.5%;
+  padding-left: 5%;
   text-align: justify;
   color: #fffff0;
   font-family: 'Inconsolata', monospace;
-  font-size: 0.9rem;
+  font-size: 0.9vw;
   line-height: 1.35;
   border: 7px double  #fffff0;
 }
 
 p,pre,ul,ol,dl,dd:after {
-  margin: 0 0 20px 0;
+  padding-top: 0%;
+  padding-right: 1%;
+  padding-bottom: 0.5%;
+  padding-left: 1%;
 }
 a,a:hover{
   color: white;
@@ -47,7 +53,7 @@ dl {
   
 }
 p, dl {
-  margin-left: 8ex;
+  margin-left: 0.5%;
 }
 dt, dd {
   display: inline;
@@ -70,11 +76,11 @@ dl.no-inner-margin dd:after{
 
 footer{
   text-align: center;
-  margin-top: 40px;
+  margin-top: 2%;
 }
 
 table{
-  width:60%;
+  width:100%;
 }
 table, th, td{
   color: #fffff0;
@@ -82,7 +88,7 @@ table, th, td{
   border-collapse: collapse;
 }
 th, td {
-  padding: 5.5px;
+  padding: 0.5%;
   text-align: center;
 }
 table#t01 tr:nth-child( even ){
