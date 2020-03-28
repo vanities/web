@@ -5,6 +5,7 @@ function getRandomColor(){
     return color;
 }
 
+
 $(document).ready(function()
 {
     $("a").hover(function()
@@ -13,10 +14,8 @@ $(document).ready(function()
         $(this).css('color',randomColor)
     });
 
-    /* $("a").hover.background(function()
-    {
-        var randomColor = getRandomColor();
-        $(this).css('color',randomColor)
-    });*/
+    $('a').click(function(){
+        $(this).addClass('visited');
+    });
 });
 

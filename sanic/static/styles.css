@@ -1,5 +1,5 @@
 header {
-  color: #1e90ff;
+  color: #b1e600;
   margin-bottom: 20px;
   text-align: center;
   text-transform: uppercase;
@@ -35,7 +35,11 @@ p,pre,ul,ol,dl,dd:after {
   margin: 0 0 20px 0;
 }
 a,a:hover{
-
+  color: white;
+}
+.visited {
+  color: white;
+  text-decoration: line-through;
 }
 
 dl {
