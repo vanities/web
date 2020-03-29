@@ -34,6 +34,10 @@ body {
   border: 7px double  #fffff0;
 }
 
+.section{
+  border: 7px inset  #fffff0;
+}
+
 p,pre,ul,ol,dl,dd:after {
   padding-top: 0%;
   padding-right: 1%;
@@ -50,7 +54,6 @@ a,a:hover{
 
 dl {
   margin-top: 2;
-  
 }
 p, dl {
   margin-left: 0.5%;
@@ -84,12 +87,17 @@ table{
 }
 table, th, td{
   color: #fffff0;
-  border: 1.5px solid black;
   border-collapse: collapse;
 }
 th, td {
   padding: 0.5%;
-  text-align: center;
+  text-align: left;
+}
+th {
+  border: 3px solid #fffff0;
+}
+.books{
+  border: 0.5px solid  #fffff0;
 }
 table#t01 tr:nth-child( even ){
   background-color:#777777;
