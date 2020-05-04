@@ -1,4 +1,5 @@
-IMAGE_NAME ?= vanities/web
+SERVICE_NAME = web
+IMAGE_NAME ?= vanities/$(SERVICE_NAME)
 IMAGE_VERSION ?= latest
 DOCKER_TAG := $(IMAGE_NAME):$(IMAGE_VERSION)
 
@@ -47,21 +48,17 @@ renew_cert:
 
 service_start:
 	sudo cp services/* /etc/systemd/system
-	sudo systemctl start web.service
-	sudo systemctl enable web.service
+	sudo systemctl start $(SERVICE_NAME).service
+	sudo systemctl enable $(SERVICE_NAME).service
 
 service_restart:
-	sudo systemctl restart web.service
+	sudo systemctl restart $(SERVICE_NAME).service
 
 service_reload:
 	sudo systemctl daemon-reload
 
 service_status:
-	sudo systemctl status web.service
-
-logs:
-	sudo journalctl -f -u web.service
-
+	sudo systemctl status $(SERVICE_NAME).service
 down: 
 	 $(DOCKER_COMPOSE) down
 
